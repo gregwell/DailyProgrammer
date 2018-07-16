@@ -4,6 +4,7 @@ namespace Talking_clock
 {
     internal class Program
     {
+        //testuje
         private static void Main(string[] args)
         {
             GenerateOutput(GetValidInput());
