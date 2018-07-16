@@ -9,7 +9,6 @@ namespace Talking_clock
             GenerateOutput(GetValidInput());
         }
 
-        //
         private static int[] GetValidInput()
         {
             int[] inputIntegers = new int[2];
@@ -166,4 +165,4 @@ namespace Talking_clock
             }
         }
     }
-}+
+}
