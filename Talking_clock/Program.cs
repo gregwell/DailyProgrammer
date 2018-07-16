@@ -2,15 +2,15 @@ using System;
 
 namespace Talking_clock
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             GenerateOutput(GetValidInput());
         }
 
-
-        static int[] GetValidInput()
+        //
+        private static int[] GetValidInput()
         {
             int[] inputIntegers = new int[2];
             bool inputInvalid = true;
@@ -30,11 +30,9 @@ namespace Talking_clock
                     // If input numbers are valid, while loop exits.
                     inputInvalid = !ValidateInput(inputIntegers);
                 }
-
             }
 
             return inputIntegers;
-
         }
 
         /// <summary>
@@ -42,13 +40,12 @@ namespace Talking_clock
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        static bool ValidateInput(int[] input)
+        private static bool ValidateInput(int[] input)
         {
             return (input[0] >= 0 && input[0] <= 23 && input[1] >= 0 && input[1] <= 59);
         }
 
-
-        static void GenerateOutput(int[] input)
+        private static void GenerateOutput(int[] input)
         {
             // handles am/pm situation
             string amPm = GenerateAmPm(input[0]);
@@ -57,7 +54,7 @@ namespace Talking_clock
             Console.WriteLine(output);
         }
 
-        static string GenerateAmPm(int hour)
+        private static string GenerateAmPm(int hour)
         {
             string ampm = "";
             if (hour >= 12)
@@ -72,7 +69,7 @@ namespace Talking_clock
             return ampm;
         }
 
-        static string GenerateHoursString(int hour)
+        private static string GenerateHoursString(int hour)
         {
             string hourWord = "you broke hours ";
             // handles pm clause
@@ -105,25 +102,21 @@ namespace Talking_clock
             return hourWord;
         }
 
-        static string GenerateMinutesString(int minute)
+        private static string GenerateMinutesString(int minute)
         {
             string minuteWord = "";
 
             if (minute == 0)
             {
-
             }
             else if (minute < 10)
             {
                 minuteWord = "oh " + NumberAsWord(minute);
-
             }
-
             else if (minute < 20)
             {
                 minuteWord = NumberAsWord(minute);
             }
-
             else if (minute < 30)
             {
                 minuteWord = "twenty " + NumberAsWord(minute - 20);
@@ -144,7 +137,7 @@ namespace Talking_clock
             return minuteWord;
         }
 
-        static string NumberAsWord(int input)
+        private static string NumberAsWord(int input)
         {
             switch (input)
             {
@@ -171,7 +164,6 @@ namespace Talking_clock
                 default:
                     return "outofboundsnumberAsWord";
             }
-
         }
     }
-}
+}+
