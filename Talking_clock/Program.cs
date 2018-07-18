@@ -4,7 +4,6 @@ namespace Talking_clock
 {
     internal class Program
     {
-        //testuje
         private static void Main(string[] args)
         {
             GenerateOutput(GetValidInput());
@@ -35,11 +34,6 @@ namespace Talking_clock
             return inputIntegers;
         }
 
-        /// <summary>
-        /// Validates if given integers are hh:mm.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
         private static bool ValidateInput(int[] input)
         {
             return (input[0] >= 0 && input[0] <= 23 && input[1] >= 0 && input[1] <= 59);
