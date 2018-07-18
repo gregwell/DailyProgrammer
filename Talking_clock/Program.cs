@@ -99,7 +99,6 @@ namespace Talking_clock
         private static string GenerateMinutesString(int minute)
         {
             string minuteWord = "";
-
             if (minute == 0)
             {
             }
