@@ -10,8 +10,12 @@ namespace Game_of_trees
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Input a number:");
-            int number = Convert.ToInt32(Console.ReadLine());
+            int number;
+            Console.WriteLine("Enter Integer Size.");
+            while (!int.TryParse(Console.ReadLine(), out number) || number <1 )
+            {
+                Console.WriteLine("That was invalid. Enter a valid number.");
+            }
             Console.Clear();
 
             while (number != 1)
