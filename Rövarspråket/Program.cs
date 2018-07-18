@@ -22,19 +22,36 @@ namespace Rövarspråket
         {
             char[] position = text.ToCharArray();
 
-            for (int i=0; i<text.Length; i++)
-            {
-                bool isVowel = "aeiouyAEIOUYåäöÅÄÖ".IndexOf(position[i]) != -1 ;
+            char[] array = new char[50];
 
+            for (int i = 0; i < text.Length; i++)
+            {
+                bool isVowel = "aeiouyAEIOUYåäöÅÄÖ".IndexOf(position[i]) != -1;
+                int counter = 0;
                 if (isVowel)
                 {
-                    Console.WriteLine("{0}", position[i]);
+                    counter++;
+                    array[counter] = position[i];
+                    Console.WriteLine(" (samogloska) ");
                 }
                 else
                 {
-                    Console.WriteLine("{0}o{0}", position[i]);
+                    counter += 1;
+                    array[counter] = position[i];
+                    counter += 1;
+                    array[counter] = 'o';
+                    counter += 1;
+                    array[counter] = position[i];
+                    Console.WriteLine(" (spolgloska) ");
                 }
             }
+
+            for (int j = 1; j < array.Length; j++)
+            {
+                Console.WriteLine(array[j]);
+            }
+            //   string encoded = new string(array);
+            // Console.WriteLine(encoded);
         }
     }
 }
