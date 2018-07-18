@@ -22,10 +22,19 @@ namespace Rövarspråket
         {
             char[] position = text.ToCharArray();
 
+            for (int i=0; i<text.Length; i++)
+            {
+                bool isVowel = "aeiouyAEIOUYåäöÅÄÖ".IndexOf(position[i]) != -1 ;
 
-            bool isVowel = "aeiouyAEIOUYåäöÅÄÖ".IndexOf(position[0]) != -1;
-
-            Console.WriteLine(isVowel);
+                if (isVowel)
+                {
+                    Console.WriteLine("{0}", position[i]);
+                }
+                else
+                {
+                    Console.WriteLine("{0}o{0}", position[i]);
+                }
+            }
         }
     }
 }
