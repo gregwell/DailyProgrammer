@@ -22,17 +22,20 @@ namespace Rövarspråket
         {
             char[] position = text.ToCharArray();
 
-            char[] array = new char[50];
-
+            char[] array = new char[100];
+            int counter = 0;
             for (int i = 0; i < text.Length; i++)
             {
                 bool isVowel = "aeiouyAEIOUYåäöÅÄÖ".IndexOf(position[i]) != -1;
-                int counter = 0;
                 if (isVowel)
                 {
                     counter++;
                     array[counter] = position[i];
-                    Console.WriteLine(" (samogloska) ");
+                }
+                else if (position[i] == ' ')
+                {
+                    counter++;
+                    array[counter] = ' ';
                 }
                 else
                 {
@@ -42,16 +45,16 @@ namespace Rövarspråket
                     array[counter] = 'o';
                     counter += 1;
                     array[counter] = position[i];
-                    Console.WriteLine(" (spolgloska) ");
                 }
             }
 
-            for (int j = 1; j < array.Length; j++)
-            {
-                Console.WriteLine(array[j]);
-            }
-            //   string encoded = new string(array);
-            // Console.WriteLine(encoded);
+            string encoded = new string(array);
+            Console.WriteLine(encoded);
         }
     }
 }
+
+//what to do
+//1) validation - only letters / no letters = just rewrite
+//2) toLower -> all letters inside words.
+//3) make some notes
