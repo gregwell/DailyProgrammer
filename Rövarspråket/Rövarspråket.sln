@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rövarspråket", "Rövarspråket.csproj", "{13480076-8831-4563-B51E-A2C5ED3B592D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rövarspråket2", "..\Rövarspråket2\Rövarspråket2.csproj", "{AF6DC175-007D-4C16-A97A-87779906477A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{13480076-8831-4563-B51E-A2C5ED3B592D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13480076-8831-4563-B51E-A2C5ED3B592D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13480076-8831-4563-B51E-A2C5ED3B592D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF6DC175-007D-4C16-A97A-87779906477A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF6DC175-007D-4C16-A97A-87779906477A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF6DC175-007D-4C16-A97A-87779906477A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF6DC175-007D-4C16-A97A-87779906477A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

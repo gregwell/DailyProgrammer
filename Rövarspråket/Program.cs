@@ -22,7 +22,7 @@ namespace Rövarspråket
         {
             char[] position = text.ToCharArray();
 
-            char[] array = new char[100];
+            char[] array = new char[text.Length*3];
             int counter = 0;
             for (int i = 0; i < text.Length; i++)
             {
