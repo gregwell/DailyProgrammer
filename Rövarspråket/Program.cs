@@ -10,7 +10,7 @@ namespace Rövarspråket
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Please enter message you want to encode");
+            Console.WriteLine("Rövarspråket encoder..\nPlease enter message you want to encode");
             string message = Console.ReadLine();
 
             Encode(message);
@@ -35,11 +35,6 @@ namespace Rövarspråket
                         counter++;
                         array[counter] = position[i];
                     }
-                    else if (position[i] == ' ')
-                    {
-                        counter++;
-                        array[counter] = ' ';
-                    }
                     else
                     {
                         counter += 1;
@@ -47,7 +42,7 @@ namespace Rövarspråket
                         counter += 1;
                         array[counter] = 'o';
                         counter += 1;
-                        array[counter] = position[i];
+                        array[counter] = char.ToLower(position[i]);
                     }
                 }
                 else
@@ -63,8 +58,3 @@ namespace Rövarspråket
         }
     }
 }
-
-//what to do
-//1) validation - only letters / no letters = just rewrite
-//2) toLower -> all letters inside words.
-//3) make some notes
