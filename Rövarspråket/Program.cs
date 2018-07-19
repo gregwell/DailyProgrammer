@@ -26,26 +26,36 @@ namespace Rövarspråket
             int counter = 0;
             for (int i = 0; i < text.Length; i++)
             {
-                bool isVowel = "aeiouyAEIOUYåäöÅÄÖ".IndexOf(position[i]) != -1;
-                if (isVowel)
+                bool isLetter = char.IsLetter(position[i]);
+                if (isLetter)
                 {
-                    counter++;
-                    array[counter] = position[i];
-                }
-                else if (position[i] == ' ')
-                {
-                    counter++;
-                    array[counter] = ' ';
+                    bool isVowel = "aeiouyAEIOUYåäöÅÄÖ".IndexOf(position[i]) != -1;
+                    if (isVowel)
+                    {
+                        counter++;
+                        array[counter] = position[i];
+                    }
+                    else if (position[i] == ' ')
+                    {
+                        counter++;
+                        array[counter] = ' ';
+                    }
+                    else
+                    {
+                        counter += 1;
+                        array[counter] = position[i];
+                        counter += 1;
+                        array[counter] = 'o';
+                        counter += 1;
+                        array[counter] = position[i];
+                    }
                 }
                 else
                 {
-                    counter += 1;
-                    array[counter] = position[i];
-                    counter += 1;
-                    array[counter] = 'o';
-                    counter += 1;
+                    counter++;
                     array[counter] = position[i];
                 }
+
             }
 
             string encoded = new string(array);
