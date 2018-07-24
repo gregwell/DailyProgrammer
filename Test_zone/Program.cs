@@ -1,29 +1,34 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Test_zone
+public class Translator
 {
-    class Program
+    public static readonly char[] Consonants = new char[]{'b', 'c', 'd', 'f', 'g', 'h', 'j',
+            'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'};
+
+    private StringBuilder OutputStringBuilder = new StringBuilder();
+
+    public string Encode(string input)
     {
-        static void Main(string[] args)
+        OutputStringBuilder.Clear();
+        foreach (var character in input)
         {
-            GameOfThrees(100);
-            Console.ReadKey();
+            OutputStringBuilder.Append(
+                (character.IsConsonant())
+                ? character + "o" + char.ToLower(character)
+                : character.ToString()
+                );
         }
+        return OutputStringBuilder.ToString();
+    }
 
-        public static void GameOfThrees(int current)
-        {
-            int shift, mod;
+    public string Decode(string input)
+    {
+        return Regex.Replace(input, @"(\w)o\1", "$1", RegexOptions.IgnoreCase);
+    }
+}
 
-            do
-            {
-                shift = (mod = current % 3) == 1 ? -1 : mod == 2 ? 1 : 0;
-                Console.WriteLine("{0} {1}", current, current != 1 ? shift.ToString() : string.Empty);
-                current = (current + shift) / 3;
-            } while (current >= 1);
-        }
+public static class ExtensionMethods
+{
+    public static bool IsConsonant(this char character)
+    {
+        return (char.IsLetter(character) && Translator.Consonants.Contains(char.ToLower(character)));
     }
 }

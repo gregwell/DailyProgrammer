@@ -58,3 +58,4 @@ namespace Rövarspråket
 //1) validation - only letters / no letters = just rewrite
 //2) toLower -> all letters inside words.
 //3) make some notes
+//4) optimize it char[] array = new char[100];
