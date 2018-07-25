@@ -58,3 +58,8 @@ namespace Rövarspråket
         }
     }
 }
+
+//what to do
+//1) validation - only letters / no letters = just rewrite
+//2) toLower -> all letters inside words.
+//3) make some notes

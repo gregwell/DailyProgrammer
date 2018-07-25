@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-class RobberSpeak
+internal class RobberSpeak
 {
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
         Console.WriteLine("Rövarspråket encoder..\nPlease enter message you want to encode");
         string message = Console.ReadLine();
@@ -18,7 +18,7 @@ class RobberSpeak
         Console.ReadKey();
     }
 
-    static string Robberify(Match m)
+    private static string Robberify(Match m)
     {
         return m.Value + "o" + m.Value.ToLower();
     }
