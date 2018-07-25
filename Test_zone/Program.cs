@@ -1,29 +1,63 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using System.Collections.Specialized;
+class Program {
+static void Main()    {
+string s1 = @"apple:green:3 banana:yellow:5";
+var myRegex = new Regex(@"(\w+):(\w+):(\d+)");
 
-namespace Test_zone
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            GameOfThrees(100);
-            Console.ReadKey();
-        }
+///////// The six main tasks we're likely to have ////////
 
-        public static void GameOfThrees(int current)
-        {
-            int shift, mod;
+// Task 1: Is there a match?
+Console.WriteLine("*** Is there a Match? ***");
+if (myRegex.IsMatch(s1)) Console.WriteLine("Yes");
+else Console.WriteLine("No");
 
-            do
-            {
-                shift = (mod = current % 3) == 1 ? -1 : mod == 2 ? 1 : 0;
-                Console.WriteLine("{0} {1}", current, current != 1 ? shift.ToString() : string.Empty);
-                current = (current + shift) / 3;
-            } while (current >= 1);
-        }
+// Task 2: How many matches are there?
+MatchCollection AllMatches = myRegex.Matches(s1);
+Console.WriteLine("\n" + "*** Number of Matches ***");
+Console.WriteLine(AllMatches.Count);
+
+// Task 3: What is the first match?
+Console.WriteLine("\n" + "*** First Match ***");
+Match OneMatch = myRegex.Match(s1);
+if (OneMatch.Success)    {
+    Console.WriteLine("Overall Match: "+ OneMatch.Groups[0].Value);
+    Console.WriteLine("Group 1: " + OneMatch.Groups[1].Value);
+    Console.WriteLine("Group 2: " + OneMatch.Groups[2].Value);
+    Console.WriteLine("Group 3: " + OneMatch.Groups[3].Value);
+    }
+
+// Task 4: What are all the matches?
+Console.WriteLine("\n" + "*** Matches ***");
+if (AllMatches.Count > 0)    {
+    foreach (Match SomeMatch in AllMatches)    {
+        Console.WriteLine("Overall Match: " + SomeMatch.Groups[0].Value);
+        Console.WriteLine("Group 1: " + SomeMatch.Groups[1].Value);
+        Console.WriteLine("Group 2: " + SomeMatch.Groups[2].Value);
+        Console.WriteLine("Group 3: " + SomeMatch.Groups[3].Value);
     }
 }
+
+// Task 5: Replace the matches
+// simple replacement: reverse groups
+string replaced = myRegex.Replace(s1, delegate(Match m) 
+{
+       return m.Groups[3].Value + ":" +
+              m.Groups[2].Value + ":" +
+              m.Groups[1].Value;
+});
+Console.WriteLine("\n" + "*** Replacements ***");
+Console.WriteLine(replaced);
+
+// Task 6: Split
+// Let's split at colons or spaces
+string[] splits = Regex.Split(s1, @":|\s");
+Console.WriteLine("\n" + "*** Splits ***");
+foreach (string split in splits) Console.WriteLine(split);
+
+Console.WriteLine("\nPress Any Key to Exit.");
+Console.ReadKey();
+
+} // END Main
+} // END Program
