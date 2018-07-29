@@ -19,13 +19,19 @@ namespace Defusing_the_bomb
             for (int i = 0; i < input.Length; i++)
             {
                 input[i] = Console.ReadLine();
+
+                while (ValidateColour(input[i]) == false)
+                {
+                    Console.WriteLine("input correct colour, {0}", i);
+                    input[i] = Console.ReadLine();
+                }
+
                 if (input[i] == "white") colour[i] = 'w';
                 else if (input[i] == "red") colour[i] = 'r';
                 else if (input[i] == "black") colour[i] = 'b';
                 else if (input[i] == "orange") colour[i] = 'o';
                 else if (input[i] == "green") colour[i] = 'g';
                 else if (input[i] == "purple") colour[i] = 'p';
-                else Console.WriteLine("Enter valid colours");
                 sb.Append(colour[i]);
             }
             ValidateInput(sb.ToString());
@@ -44,6 +50,13 @@ namespace Defusing_the_bomb
             {
                 Console.WriteLine("Bomb has been defused.");
             }
+        }
+
+        private static bool ValidateColour(string input)
+        {
+            Regex myRegex = new Regex("^white|red|black|orange|green$");
+            Match match = myRegex.Match(input);
+            return match.Success;
         }
     }
 }
