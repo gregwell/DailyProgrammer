@@ -1,29 +1,31 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Test_zone
-{
-    class Program
+class Program
     {
         static void Main(string[] args)
         {
-            GameOfThrees(100);
-            Console.ReadKey();
-        }
-
-        public static void GameOfThrees(int current)
-        {
-            int shift, mod;
-
-            do
-            {
-                shift = (mod = current % 3) == 1 ? -1 : mod == 2 ? 1 : 0;
-                Console.WriteLine("{0} {1}", current, current != 1 ? shift.ToString() : string.Empty);
-                current = (current + shift) / 3;
-            } while (current >= 1);
+            List<Employee> Employees = new List<Employee>() { 
+                new Employee(5112, "John", 1000.34),
+                new Employee(5113, "Kennedy", 20045.10),
+                new Employee(5115, "John", 5000.23),
+                new Employee(5116, "Anna", 32400.43)
+            };
         }
     }
-}
+    public class Employee
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public double salary { get; set; }
+        public Employee(int _id, string _name, double _salary)
+        {
+            id = _id;
+            name = _name;
+            salary = _salary;
+        }
+    }
+
+var empList = Employees.Where(emp => emp.name == "John");
+           foreach(var emp in empList){
+               Console.WriteLine(emp.id);
+               // 5112
+               // 5115
+           }

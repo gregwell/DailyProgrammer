@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace clock
 {
-    class RedditClock
+    internal class RedditClock
     {
         public void ShowTime()
         {
@@ -18,7 +18,6 @@ namespace clock
                     "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven" };
 
                 string[] tens = new string[6] { "oh'", "", "twenty", "thirty", "fourty", "fifty" };
-
 
                 string[] ones = new string[20] { "clock", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve",
                     "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eightteen", "nineteen" };
@@ -74,7 +73,8 @@ namespace clock
                 Console.Clear();
             }
         }
-        static void Main(string[] args)
+
+        private static void Main(string[] args)
         {
             RedditClock rC = new RedditClock();
             ThreadStart TS = new ThreadStart(rC.ShowTime);
