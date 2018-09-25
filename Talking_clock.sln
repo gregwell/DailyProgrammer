@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talking_clock", "Talking_clock\Talking_clock.csproj", "{82D59548-7115-4DF6-9D24-074CBEBD9F45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1 - Talking_clock", "Talking_clock\1 - Talking_clock.csproj", "{82D59548-7115-4DF6-9D24-074CBEBD9F45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talking_clock2", "Talking_clock2\Talking_clock2.csproj", "{84C84342-941E-4B5F-9F5B-92C4174CFEA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1 - Talking_clock2", "Talking_clock2\1 - Talking_clock2.csproj", "{84C84342-941E-4B5F-9F5B-92C4174CFEA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
