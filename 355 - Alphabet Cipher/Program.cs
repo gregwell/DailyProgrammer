@@ -19,43 +19,35 @@ namespace Alphabet_Cipher
             //CHALLENGE INPUT
             // train murderontheorientexpress\
 
-            //THINGS TO DO:
-            //1) take user input
+            //collect user input and divide to two strings.
             Console.WriteLine("Sample input: keyword messagetoencode");
             Console.Write("Your input: ");
-
-            //2) divide it to two parts ( separator - space )
             string[] input = Console.ReadLine().Trim().Split(' ');
 
-            //3) count message letters and extend keyword as much as needed so
-            //  keyword = traintraintraintraintrai
-            //  message = murderontheorientexpress
-
+            //extend keyword to length of message.
             var keyword = input[0];
+            char[] kposition = input[0].ToCharArray();
+            for (int i = 1; i < (input[1].Length / keyword.Length); i++) input[0] += keyword;
+            for (int i = 0; i < (input[1].Length % keyword.Length); i++) input[0] += kposition[i];
 
-            Console.WriteLine(input[1].Length / input[0].Length);
-            Console.WriteLine(input[1].Length % input[0].Length);
-
+            //make char arrays k and m.
             char[] k = input[0].ToCharArray();
+            char[] m = input[1].ToCharArray();
 
-            for (int i = 1; i < (input[1].Length / keyword.Length); i++)
-            {
-                input[0] += keyword;
-            }
-
-            for (int i = 0; i < (input[1].Length % keyword.Length); i++)
-            {
-                input[0] += k[i];
-            }
-
-            Console.WriteLine(input[0]);
-
-            //4) make arrays from those strings where every letter is separated.
-
-            Console.ReadLine();
-
-            //5) figure out how to multiply these two letters to have the result...
+            //figure out how to multiply these two letters to have the result...
             //    k[i] * m[i] = result[i]
+
+            char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToLower().ToCharArray();
+
+            // input[0] = c
+            // input[0] = d
+            // so input[0] ==alphabet[2]
+            // so input[1] == alphabet[3]
+            //so result[0] = 2+3
+
+            //handle also cases when the count is bigger than alphabet, then you have to reset index
+
+            //alphabet[6] to jest
         }
     }
 }
