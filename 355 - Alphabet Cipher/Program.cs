@@ -36,24 +36,33 @@ namespace Alphabet_Cipher
             int[] k_index = new int[input[0].Length];
             int[] m_index = new int[input[0].Length];
 
-            for (int i = 0; i < 26; i++)
+            //here is the problem, stops here when the  word is longer
+
+            for (int i = 0; i < input[0].Length; i++)
             {
                 for (int j = 0; j < input[0].Length; j++)
                 {
-                    Console.WriteLine(input[0]);
+                    int xd;
+                    xd = i;
+                    if (i > 25) i = (i % 25 - 1);
+
                     if (k[j] == alphabet[i]) k_index[j] = i;
                     if (m[j] == alphabet[i]) m_index[j] = i;
+                    i = xd;
                 }
             }
 
             int[] result_index = new int[input[0].Length];
 
-            Console.ReadKey();
+            for (int i = 0; i < input[0].Length; i++)
+            {
+                result_index[i] = k_index[i] + m_index[i];
+                if (result_index[i] > 25) result_index[i] = (result_index[i] % 25 - 1);
 
-            //handle also cases when the count is bigger than alphabet, then you have to reset index
-            //25 is max
-            //26 is 0
-            //27 is 1 and so on...
+                Console.Write(alphabet[result_index[i]]);
+            }
+
+            Console.ReadKey();
         }
     }
 }
