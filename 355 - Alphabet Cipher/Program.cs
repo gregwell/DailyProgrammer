@@ -27,38 +27,30 @@ namespace Alphabet_Cipher
 
             char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToLower().ToCharArray();
 
-            // k[0] == 'c'
-            // m[0] == 'd'
-            // k[0] == alphabet[2]
-            // m[0] == alphabet[3]
-            //so result[0] = alphabet[2+3]
-
             int[] k_index = new int[input[0].Length];
             int[] m_index = new int[input[0].Length];
 
-            //here is the problem, stops here when the  word is longer
-
+            //searching for alphabet index number of my letters
             for (int i = 0; i < input[0].Length; i++)
             {
                 for (int j = 0; j < input[0].Length; j++)
                 {
-                    int xd;
-                    xd = i;
+                    int real_i = i;
                     if (i > 25) i = (i % 25 - 1);
 
                     if (k[j] == alphabet[i]) k_index[j] = i;
                     if (m[j] == alphabet[i]) m_index[j] = i;
-                    i = xd;
+                    i = real_i;
                 }
             }
 
+            //display changed letters
             int[] result_index = new int[input[0].Length];
 
             for (int i = 0; i < input[0].Length; i++)
             {
                 result_index[i] = k_index[i] + m_index[i];
                 if (result_index[i] > 25) result_index[i] = (result_index[i] % 25 - 1);
-
                 Console.Write(alphabet[result_index[i]]);
             }
 
