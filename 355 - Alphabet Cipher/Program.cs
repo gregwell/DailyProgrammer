@@ -10,15 +10,6 @@ namespace Alphabet_Cipher
     {
         private static void Main(string[] args)
         {
-            //Substitution chart
-            //result - the result of the substrition chart
-            //first- letter of my keyword
-            //second- letter of the message that is being encoded
-            //result = first * second
-
-            //CHALLENGE INPUT
-            // train murderontheorientexpress\
-
             //collect user input and divide to two strings.
             Console.WriteLine("Sample input: keyword messagetoencode");
             Console.Write("Your input: ");
@@ -34,20 +25,35 @@ namespace Alphabet_Cipher
             char[] k = input[0].ToCharArray();
             char[] m = input[1].ToCharArray();
 
-            //figure out how to multiply these two letters to have the result...
-            //    k[i] * m[i] = result[i]
-
             char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToLower().ToCharArray();
 
-            // input[0] = c
-            // input[0] = d
-            // so input[0] ==alphabet[2]
-            // so input[1] == alphabet[3]
-            //so result[0] = 2+3
+            // k[0] == 'c'
+            // m[0] == 'd'
+            // k[0] == alphabet[2]
+            // m[0] == alphabet[3]
+            //so result[0] = alphabet[2+3]
+
+            int[] k_index = new int[input[0].Length];
+            int[] m_index = new int[input[0].Length];
+
+            for (int i = 0; i < 26; i++)
+            {
+                for (int j = 0; j < input[0].Length; j++)
+                {
+                    Console.WriteLine(input[0]);
+                    if (k[j] == alphabet[i]) k_index[j] = i;
+                    if (m[j] == alphabet[i]) m_index[j] = i;
+                }
+            }
+
+            int[] result_index = new int[input[0].Length];
+
+            Console.ReadKey();
 
             //handle also cases when the count is bigger than alphabet, then you have to reset index
-
-            //alphabet[6] to jest
+            //25 is max
+            //26 is 0
+            //27 is 1 and so on...
         }
     }
 }
