@@ -17,22 +17,15 @@ namespace Alphabet_Cipher
             string input = Console.ReadLine();
 
             // regex
-            var myRegex = new Regex(@"\b([a-z]+)\s([a-z]+)\b");
-            Match match = myRegex.Match(input);
-
-            while (!match.Success)
-            {
-                Console.WriteLine("Enter correct input");
-                input = Console.ReadLine();
-                match = myRegex.Match(input);
-            }
+            Match match = ValidateInput(input);
 
             var keyword = match.Groups[1].Value;
             var message = match.Groups[2].Value;
+
             //extend keyword_default to length of message.
             var keyword_default = keyword;
             char[] kposition = keyword.ToCharArray();
-            for (int i = 1; i < (keyword.Length / keyword_default.Length); i++) keyword += keyword_default;
+            for (int i = 1; i < (message.Length / keyword_default.Length); i++) keyword += keyword_default;
             for (int i = 0; i < (message.Length % keyword_default.Length); i++) keyword += kposition[i];
 
             //make char arrays k and m.
@@ -69,6 +62,20 @@ namespace Alphabet_Cipher
             }
 
             Console.ReadKey();
+        }
+
+        public static Match ValidateInput(string input)
+        {
+            var myRegex = new Regex(@"\b([a-z]+)\s([a-z]+)\b");
+            Match match = myRegex.Match(input);
+
+            while (!match.Success)
+            {
+                Console.WriteLine("Enter correct input");
+                input = Console.ReadLine();
+                match = myRegex.Match(input);
+            }
+            return match;
         }
     }
 }
